@@ -25,10 +25,6 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
         String sql="";
          boolean exito = false;
         
-           
-        
-        
-       
         try {
             Connection c = Conexion.getConexion();
             PreparedStatement statement=null;
@@ -47,7 +43,7 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
             {
                  statement=
                     c.prepareStatement("update  funcionario set numero_documento=?, nombres=?,apellido1=?,apellido2=?,clave=? where numero_documento=?");
-                  statement.setString(1, entity.getNumeroDocumento());
+            statement.setString(1, entity.getNumeroDocumento());
             statement.setString(2, entity.getNombres());
             statement.setString(3, entity.getApellido1());
             statement.setString(4, entity.getApellido2());
@@ -72,7 +68,6 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
 
     @Override
     public void delete(Funcionario entity) {
-            
         try {
             Connection c = Conexion.getConexion();
             PreparedStatement statement=
@@ -88,13 +83,8 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
-        
-        
-        
-        
-    }
 
-   
+    }
     public Funcionario findById(Object id) {
             Funcionario entity=null;
         try {
@@ -105,7 +95,7 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
                     );
             statement.setString(1, (String)id);
             
-            ResultSet results =   statement.executeQuery();
+            ResultSet results =  statement.executeQuery();
             if(results.next())
             {
                 entity = new Funcionario();
@@ -150,15 +140,11 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
                  entity.setClave(results.getString(5));
                  entities.add(entity);
             }    
-            
             c.close();
-            
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
-        
-        
         return entities;
         
     }
