@@ -8,13 +8,16 @@ import datos.configuracion.Conexion;
 import datos.entidades.Funcionario;
 import datos.entidades.usuario_denuncia;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.text.SimpleDateFormat;
 /**
  *
  * @author JHONATAN
@@ -163,4 +166,20 @@ public class usuario_denunciaDAO implements DAOInterface<usuario_denuncia>{
         return entities;
     }
     
+    public static void  main(String args[]) {
+        usuario_denuncia a=new usuario_denuncia();
+        a.setDocumento_usuario_denuncia("12345");
+        a.setNombres("jose Bonifacio");
+        a.setApellido1("elias");
+        a.setApellido2("parra");
+        //a.setFecha_nacimiento(null);
+        java.util.Date date = new java.util.Date();
+        java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd");
+        String fecha = sdf.format(date);
+        a.setDireccion("calle 135 # 45-54");
+        a.setTelefono("6754895");
+        a.setCorreo("jose124@hotmail.com");
+        usuario_denunciaDAO w=new usuario_denunciaDAO();
+        w.save(a);
+    }
 }

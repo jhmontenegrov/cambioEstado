@@ -26,7 +26,6 @@ public class usuario_denuncia {
     }
 
     public usuario_denuncia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getDocumento_usuario_denuncia() {

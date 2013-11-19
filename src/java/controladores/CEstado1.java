@@ -44,12 +44,13 @@ public class CEstado1 extends HttpServlet {
             }
             else{
                 estadoDAO fdao = new estadoDAO();
+                
                 if (accion.equals("inicio")){
                 dispatcher= request.getRequestDispatcher("WEB-INF/cambiarEstado.jsp");
                 dispatcher.forward(request, response);
                 }
                 if (accion.equals("guardar")){
-                    String nuevoestado=request.getParameter("nuevoestado");
+                    String nuevoestado=request.getParameter("Nuevoestado");
                     String buscar=request.getParameter("buscar");
                     int idEstado=Integer.parseInt(buscar);
                     estado f=new estado(nuevoestado,idEstado);

@@ -49,7 +49,7 @@ public class FuncionarioDAO implements DAOInterface<Funcionario>{
             statement.setString(4, entity.getApellido2());
             statement.setString(5, entity.getClave());
             statement.setString(6, entity.getNumeroDocumento());
-            }    
+            }
             
             exito = statement.execute();
             

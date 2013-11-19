@@ -144,6 +144,19 @@ public class usuario_reportaDAO implements DAOInterface<usuario_reporta>{
         }
         return entities;
     }
+    
+    public static void  main(String args[]) {
+        usuario_reporta x=new usuario_reporta();
+        x.setDocumento_usuario_reporta("1232345");
+        x.setNombres("lambon");
+        x.setApellido1("dghjepf");
+        x.setApellido2("epf");
+        x.setDireccion("calle del bronx");
+        x.setTelefono("42356 ext. 451");
+        x.setCorreo("hjods@noseque.es");
+        usuario_reportaDAO dao=new usuario_reportaDAO();
+        dao.save(x);
+    }
 }
     
 

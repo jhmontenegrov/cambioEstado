@@ -5,8 +5,10 @@
 package controladores;
 
 import datos.DAO.FuncionarioDAO;
+import datos.DAO.estadoDAO;
 import datos.configuracion.Conexion;
 import datos.entidades.Funcionario;
+import datos.entidades.estado;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CFuncionario", urlPatterns = {"/CFuncionario"})
 public class CFuncionario extends HttpServlet {
-    private RequestDispatcher dispatcher;
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -103,7 +105,7 @@ public class CFuncionario extends HttpServlet {
                 fdao.delete(f);
                  */
             }
-        } finally {            
+        }  finally {            
             out.close();
         }
     }

@@ -80,8 +80,8 @@ public class tipodocumentoDAO  implements DAOInterface<Tipodocumento>{
             Connection c = Conexion.getConexion();
             PreparedStatement statement=
                     c.prepareStatement(
-                    "select id_tipo,nombre,descripcion from tipo_documento where id_tipo?");
-            statement.setString(1, (String)id);
+                    "select id_tipo,nombre,descripcion from tipo_documento where id_tipo=?");
+            statement.setInt(1, (Integer)id);
             ResultSet results =  statement.executeQuery();
             if(results.next())
             {
@@ -126,7 +126,6 @@ public class tipodocumentoDAO  implements DAOInterface<Tipodocumento>{
         return entities;
     }
     public static void  main(String args[]) {
-        Tipodocumento x;
         Tipodocumento a=new Tipodocumento();
         a.setId_documento(1);
         a.setNombre("cedula");

@@ -10,7 +10,7 @@ package datos.entidades;
  */
 public class estado {
     private String nombre;
-    private int id_estado;
+    public int id_estado;
 
     public estado(String nombre, int id_estado) {
         this.nombre = nombre;
